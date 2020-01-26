@@ -1,6 +1,14 @@
 const express = require('express');
+const connectDB = require('./config/db');
 
 const app = express();
+
+//CONNECT DB
+
+connectDB();
+
+//Init Middleware
+app.use(express.json({ extendet: false }));
 
 app.get('/', (req, res) => res.json({ msg: 'Welcome to the ContactAPI' }));
 
